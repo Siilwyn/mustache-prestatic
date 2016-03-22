@@ -1,0 +1,50 @@
+{
+  "name": "mustache-prestatic",
+  "version": "1.0.0",
+  "description": "Compile pages of static HTML based on partials, views and data.",
+  "keywords": [
+    "mustache",
+    "prestatic",
+    "static",
+    "compile",
+    "prerender",
+    "render",
+    "files",
+    "feelefold"
+  ],
+  "homepage": "https://github.com/Siilwyn/mustache-prestatic",
+  "bugs": "https://github.com/Siilwyn/mustache-prestatic/issues",
+  "license": "MIT",
+  "author": "Selwyn <talk@selwyn.cc> (https://selwyn.cc/)",
+  "files": [
+    "src",
+    "bin"
+  ],
+  "main": "src/index.js",
+  "bin": {
+    "mustache-prestatic": "bin/mustache-prestatic.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Siilwyn/mustache-prestatic.git"
+  },
+  "scripts": {
+    "start": "npm run watch",
+    "test": "node tests/test.js",
+    "preversion": "npm test",
+    "postversion": "git push && npm publish",
+    "lint": "eslint src/*.js bin/*.js tests/*.js",
+    "watch": "watch 'npm run test && npm run lint --silent' src bin"
+  },
+  "dependencies": {
+    "lagden-promisify": "^2.0.0",
+    "mustache": "^2.2.1",
+    "promise-all-props": "^1.0.0",
+    "yargs": "^4.3.2"
+  },
+  "devDependencies": {
+    "eslint": "^2.4.0",
+    "tape": "^4.5.1",
+    "watch": "^0.17.1"
+  }
+}
