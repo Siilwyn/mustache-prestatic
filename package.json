@@ -43,7 +43,7 @@
     "yargs": "^4.3.2"
   },
   "devDependencies": {
-    "eslint": "^2.4.0",
+    "eslint": "^3.0.1",
     "tape": "^4.5.1",
     "watch": "^0.18.0"
   }
