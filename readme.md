@@ -1,4 +1,6 @@
 # {{ mustache }} prestatic
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/Siilwyn/mustache-prestatic.svg)](https://greenkeeper.io/)
 [![Travis Build Status][travis-icon]][travis]
 [![David Dependencies Status][david-icon]][david]
 [![David devDependencies Status][david-dev-icon]][david-dev]
