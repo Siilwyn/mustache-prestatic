@@ -25,9 +25,7 @@ Compile pages of static HTML from mustache templates, data and partials.`)
   .option('version', {
     alias: 'v',
     type: 'boolean'
-  }).version('version', 'Show version number.', function () {
-    return require('../package.json').version;
-  })
+  }).version()
 
   .option('data', {
     alias: 'd',

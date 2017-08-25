@@ -1,6 +1,6 @@
 {
   "name": "mustache-prestatic",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Compile pages of static HTML based on partials, views and data.",
   "main": "src/index.js",
   "bin": {
@@ -20,10 +20,10 @@
     "lagden-promisify": "^3.0.0",
     "mustache": "^2.2.1",
     "promise-all-props": "^1.0.0",
-    "yargs": "^6.0.0"
+    "yargs": "^8.0.2"
   },
   "devDependencies": {
-    "eslint": "^3.2.0",
+    "eslint": "^4.5.0",
     "tape": "^4.5.1"
   },
   "repository": {
