@@ -20,10 +20,10 @@
     "lagden-promisify": "^3.0.0",
     "mustache": "^2.2.1",
     "promise-all-props": "^1.0.0",
-    "yargs": "^8.0.2"
+    "yargs": "^12.0.0"
   },
   "devDependencies": {
-    "eslint": "^4.5.0",
+    "eslint": "^5.0.0",
     "tape": "^4.5.1"
   },
   "repository": {

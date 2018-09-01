@@ -7,7 +7,6 @@ const path = require('path');
 const promisify = require('lagden-promisify');
 const yargs = require('yargs');
 
-const log = require('./verbose-log')(yargs.argv.verbose);
 const mustachePrestatic = require('../src/index.js');
 const writeFile = promisify(fs.writeFile);
 
@@ -52,7 +51,10 @@ Compile pages of static HTML from mustache templates, data and partials.`)
   })
   .argv;
 
+
 const transform = function (templateFiles) {
+  const log = require('./verbose-log')(argv.verbose);
+
   log('templateFiles', templateFiles);
   log('data', argv.data);
   log('partials', argv.partials, '\n');
