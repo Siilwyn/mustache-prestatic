@@ -1,6 +1,6 @@
 {
   "name": "mustache-prestatic",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "Compile pages of static HTML based on partials, views and data.",
   "main": "src/index.js",
   "bin": {
