@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "lagden-promisify": "^3.0.0",
-    "mustache": "^2.2.1",
+    "mustache": "^3.0.0",
     "promise-all-props": "^1.0.0",
     "yargs": "^12.0.0"
   },
