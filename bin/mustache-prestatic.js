@@ -19,12 +19,12 @@ Compile pages of static HTML from mustache templates, data and partials.`)
   .option('help', {
     alias: 'h',
     type: 'boolean'
-  }).help('help', 'Show help text.')
+  })
 
   .option('version', {
     alias: 'v',
     type: 'boolean'
-  }).version()
+  })
 
   .option('data', {
     alias: 'd',
