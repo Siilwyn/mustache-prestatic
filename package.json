@@ -23,7 +23,7 @@
     "yargs": "^13.2.1"
   },
   "devDependencies": {
-    "eslint": "^5.14.1",
+    "eslint": "^6.0.0",
     "tape": "^4.10.1"
   },
   "repository": {
