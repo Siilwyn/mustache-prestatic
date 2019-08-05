@@ -1,7 +1,7 @@
 # {{ mustache }} prestatic
 [![Travis Build Status][travis-icon]][travis]
-[![David Dependencies Status][david-icon]][david]
-[![David devDependencies Status][david-dev-icon]][david-dev]
+[![LGTM Grade][lgtm-icon]][lgtm]
+[![npm][npm-icon]][npm]
 
 Node.js module that turns [mustache] files, partials and data into static HTML pages. Making [mustache.js] usable through a simple CLI and JavaScript API by allowing multiple files as input. mustache-prestatic automatically maps the passed partial files to their file names and populates the template files from passed data files with the same name.
 
@@ -66,9 +66,10 @@ The files that contain the mustache partials, these are re-usable parts of views
 
 [mustache]: https://mustache.github.io/
 [mustache.js]: https://github.com/janl/mustache.js
+
 [travis]: https://travis-ci.org/Siilwyn/mustache-prestatic
 [travis-icon]: https://img.shields.io/travis/Siilwyn/mustache-prestatic/master.svg?style=flat-square
-[david]: https://david-dm.org/Siilwyn/mustache-prestatic
-[david-icon]: https://img.shields.io/david/Siilwyn/mustache-prestatic.svg?style=flat-square
-[david-dev]: https://david-dm.org/Siilwyn/mustache-prestatic#info=devDependencies
-[david-dev-icon]: https://img.shields.io/david/dev/Siilwyn/mustache-prestatic.svg?style=flat-square
+[lgtm]: https://lgtm.com/projects/g/Siilwyn/mustache-prestatic/
+[lgtm-icon]: https://img.shields.io/lgtm/grade/javascript/g/Siilwyn/mustache-prestatic.svg?style=flat-square
+[npm]: https://www.npmjs.com/package/mustache-prestatic
+[npm-icon]: https://img.shields.io/npm/v/mustache-prestatic.svg?style=flat-square
