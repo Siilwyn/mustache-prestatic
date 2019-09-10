@@ -7,7 +7,7 @@ const { promisify } = require('util');
 
 const yargs = require('yargs');
 
-const mustachePrestatic = require('../src/index.js');
+const { render } = require('../src/index.js');
 const writeFile = promisify(fs.writeFile);
 
 const argv = yargs
@@ -59,7 +59,7 @@ const transform = function (templateFiles) {
   log('data', argv.data);
   log('partials', argv.partials, '\n');
 
-  mustachePrestatic(templateFiles, argv.data, argv.partials)
+  render(templateFiles, argv.data, argv.partials)
     .then(function (htmlResults) {
       return templateFiles.forEach(function (filePath, index) {
         let outputFileName = path.parse(filePath).name;

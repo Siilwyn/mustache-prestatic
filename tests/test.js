@@ -6,7 +6,7 @@ const { promisify } = require('util');
 
 const tape = require('tape');
 
-const plugin = require('../src/index.js');
+const { render, mapTemplates } = require('../src/index.js');
 const readFile = promisify(fs.readFile);
 
 const templateFiles = [
@@ -33,7 +33,7 @@ const partialFiles = [
 * @param {String} message
 */
 const testCompile = function (t, dataFiles, partialFiles, fixtureKey, message) {
-  plugin(templateFiles, dataFiles, partialFiles)
+  render(templateFiles, dataFiles, partialFiles)
     .then(function (results) {
       var fileExtension = fixtureKey + '.html';
 
@@ -53,7 +53,7 @@ const testCompile = function (t, dataFiles, partialFiles, fixtureKey, message) {
     });
 };
 
-tape('Should compile HTML from given files.', function (t) {
+tape('`render` should compile HTML from given files.', function (t) {
   // Execute three tests, each test tests all templateFiles
   t.plan(templateFiles.length * 3);
 

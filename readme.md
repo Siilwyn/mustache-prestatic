@@ -22,14 +22,14 @@ mustache-prestatic ./tests/input/views/* --data ./tests/input/data/* --partials 
 
 ### JavaScript
 ```js
-const mustachePrestatic = require('mustache-prestatic');
+const { render } = require('mustache-prestatic');
 
 const templateFiles = ['views/blog.mustache', 'views/home.mustache'];
 const dataFiles = ['data/home.json'];
 const partialFiles = ['partials/article.mustache', 'partials/header.mustache'];
 
-mustachePrestatic(templateFiles, dataFiles, partialFiles)
-  .then(console.log);
+render(templateFiles, dataFiles, partialFiles)
+  .then(console.info);
 ```
 
 ## API
