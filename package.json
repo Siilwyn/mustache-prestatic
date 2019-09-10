@@ -19,12 +19,12 @@
   },
   "dependencies": {
     "lagden-promisify": "^3.0.0",
-    "mustache": "^3.0.1",
+    "mustache": "^3.0.3",
     "promise-all-props": "^1.0.0",
     "yargs": "^14.0.0"
   },
   "devDependencies": {
-    "eslint": "^6.1.0",
+    "eslint": "^6.3.0",
     "tape": "^4.11.0"
   },
   "repository": {
