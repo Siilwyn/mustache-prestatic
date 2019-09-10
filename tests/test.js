@@ -61,3 +61,10 @@ tape('`render` should compile HTML from given files.', function (t) {
   testCompile(t, dataFiles, [], '-data', 'Use templates and data.');
   testCompile(t, [], partialFiles, '-partial', 'Use templates and partials.');
 });
+
+// Skip until issue https://github.com/Siilwyn/mustache-prestatic/issues/24 is fixed
+tape.skip('`mapTemplates` should ignore directories.', function (t) {
+  t.plan(1);
+
+  t.deepEqual(mapTemplates(['tests/input/views'], []), { views: { } });
+});
