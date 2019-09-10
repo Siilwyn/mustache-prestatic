@@ -79,18 +79,22 @@ const compileMustache = function (templatesMap, partialsMap) {
   return compiledHtml;
 };
 
-module.exports = function (templateFiles, dataFiles, partialFiles) {
-  dataFiles = dataFiles || [];
-  partialFiles = partialFiles || [];
+module.exports = {
+  render: function (templateFiles, dataFiles, partialFiles) {
+    dataFiles = dataFiles || [];
+    partialFiles = partialFiles || [];
 
-  return Promise.all([
-    promiseAllProps(mapTemplates(templateFiles, dataFiles)),
-    promiseAllProps(mapFiles(partialFiles))
-  ])
-    .then(function (mustacheData) {
-      return compileMustache(mustacheData[0], mustacheData[1]);
-    })
-    .catch(function (error) {
-      throw error;
-    });
+    return Promise.all([
+      promiseAllProps(mapTemplates(templateFiles, dataFiles)),
+      promiseAllProps(mapFiles(partialFiles))
+    ])
+      .then(function (mustacheData) {
+        return compileMustache(mustacheData[0], mustacheData[1]);
+      })
+      .catch(function (error) {
+        throw error;
+      });
+  },
+  mapTemplates,
+  compileMustache,
 };
