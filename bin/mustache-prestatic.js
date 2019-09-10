@@ -3,8 +3,8 @@
 
 const fs = require('fs');
 const path = require('path');
+const { promisify } = require('util');
 
-const promisify = require('lagden-promisify');
 const yargs = require('yargs');
 
 const mustachePrestatic = require('../src/index.js');

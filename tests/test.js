@@ -2,8 +2,8 @@
 
 const fs = require('fs');
 const path = require('path');
+const { promisify } = require('util');
 
-const promisify = require('lagden-promisify');
 const tape = require('tape');
 
 const plugin = require('../src/index.js');

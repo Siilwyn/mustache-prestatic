@@ -2,9 +2,9 @@
 
 const fs = require('fs');
 const path = require('path');
+const { promisify } = require('util');
 
 const promiseAllProps = require('promise-all-props');
-const promisify = require('lagden-promisify');
 const mustache = require('mustache');
 
 const readFile = promisify(fs.readFile);
