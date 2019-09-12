@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and follows [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [2.0.6] - 2019-09-12
+### Fixed
+- Error on invalid files being matched in a glob.
+
 ## [2.0.5] - 2019-02-21
 ### Security
 - Update all dependencies to prevent prototype pollution.
