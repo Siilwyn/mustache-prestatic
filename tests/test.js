@@ -4,6 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const { promisify } = require('util');
 
+const promiseAllProps = require('promise-all-props');
 const tape = require('tape');
 
 const { render, mapTemplates } = require('../src/index.js');
@@ -42,7 +43,7 @@ const testCompile = function (t, dataFiles, partialFiles, fixtureKey, message) {
         let filePath = path.join('tests/fixtures/', fileName) + fileExtension;
 
         readFile(filePath, 'utf8')
-          .then (function (data) {
+          .then(function (data) {
             t.deepEqual(
               results[index],
               data,
@@ -62,9 +63,9 @@ tape('`render` should compile HTML from given files.', function (t) {
   testCompile(t, [], partialFiles, '-partial', 'Use templates and partials.');
 });
 
-// Skip until issue https://github.com/Siilwyn/mustache-prestatic/issues/24 is fixed
-tape.skip('`mapTemplates` should ignore directories.', function (t) {
+tape('`mapTemplates` should reject on invalid file.', function (t) {
   t.plan(1);
 
-  t.deepEqual(mapTemplates(['tests/input/views'], []), { views: { } });
+  promiseAllProps(mapTemplates(['tests/input/views'], []))
+    .catch(() => t.pass('Reject on directory.'));
 });

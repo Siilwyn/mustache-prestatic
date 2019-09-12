@@ -43,7 +43,10 @@ const mapTemplates = function (templateFiles, dataFiles) {
     });
 
     templatesMap[templateName] = promiseAllProps({
-      'template': readFile(template, 'utf8'),
+      'template': readFile(template, 'utf8')
+        .catch(function () {
+          return Promise.reject(Error(`Could not read file '${template}'`));
+        }),
       'data': readFile(dataFile, 'utf8')
         // Use passed data fall back to an empty object
         .then(function (data) {
@@ -92,7 +95,8 @@ module.exports = {
         return compileMustache(mustacheData[0], mustacheData[1]);
       })
       .catch(function (error) {
-        throw error;
+        console.error(`Fatal error: ${error.message}`);
+        process.exit(1);
       });
   },
   mapTemplates,

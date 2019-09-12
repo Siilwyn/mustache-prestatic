@@ -12,12 +12,12 @@ Node.js module that turns [mustache] files, partials and data into static HTML p
 ### CLI
 This will take all files in the 'views', 'data' and 'partials' directories and use those together to write HTML files to the 'dist' directory:
 ```shell
-mustache-prestatic ./views/* --data ./data/* --partials ./partials/* --output dist
+mustache-prestatic ./views/*.mustache --data ./data/* --partials ./partials/* --output dist
 ```
 
 For example using the [test input data](/tests/input) files would be:
 ```shell
-mustache-prestatic ./tests/input/views/* --data ./tests/input/data/* --partials ./tests/input/partials/*
+mustache-prestatic ./tests/input/views/*.mustache --data ./tests/input/data/* --partials ./tests/input/partials/*
 ```
 
 ### JavaScript
