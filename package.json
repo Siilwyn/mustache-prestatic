@@ -34,7 +34,7 @@
     "url": "https://github.com/Siilwyn/mustache-prestatic.git"
   },
   "author": "Selwyn <talk@selwyn.cc> (https://selwyn.cc/)",
-  "license": "MIT",
+  "license": "ISC",
   "keywords": [
     "mustache",
     "prestatic",
