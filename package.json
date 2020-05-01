@@ -18,13 +18,13 @@
     "postversion": "git push --follow-tags && npm publish"
   },
   "dependencies": {
-    "mustache": "^3.0.3",
+    "mustache": "^4.0.0",
     "promise-all-props": "^1.0.0",
-    "yargs": "^14.0.0"
+    "yargs": "^15.0.0"
   },
   "devDependencies": {
     "eslint": "^6.3.0",
-    "tape": "^4.11.0"
+    "tape": "^5.0.0"
   },
   "engines": {
     "node": ">= 8"
