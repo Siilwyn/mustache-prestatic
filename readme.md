@@ -67,8 +67,8 @@ The files that contain the mustache partials, these are re-usable parts of views
 [mustache]: https://mustache.github.io/
 [mustache.js]: https://github.com/janl/mustache.js
 
-[travis]: https://travis-ci.org/Siilwyn/mustache-prestatic
-[travis-icon]: https://img.shields.io/travis/Siilwyn/mustache-prestatic/master.svg?style=flat-square
+[travis]: https://travis-ci.com/Siilwyn/mustache-prestatic
+[travis-icon]: https://img.shields.io/travis/com/Siilwyn/mustache-prestatic/master.svg?style=flat-square
 [lgtm]: https://lgtm.com/projects/g/Siilwyn/mustache-prestatic/
 [lgtm-icon]: https://img.shields.io/lgtm/grade/javascript/g/Siilwyn/mustache-prestatic.svg?style=flat-square
 [npm]: https://www.npmjs.com/package/mustache-prestatic
