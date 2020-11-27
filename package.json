@@ -23,7 +23,7 @@
     "yargs": "^15.0.0"
   },
   "devDependencies": {
-    "eslint": "^7.12.1",
+    "eslint": "^7.14.0",
     "tape": "^5.0.1"
   },
   "engines": {
