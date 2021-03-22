@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "eslint": "^7.22.0",
-    "tape": "^5.1.1"
+    "tape": "^5.2.2"
   },
   "engines": {
     "node": ">= 8"
