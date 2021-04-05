@@ -18,7 +18,7 @@
     "postversion": "git push --follow-tags && npm publish"
   },
   "dependencies": {
-    "mustache": "^4.0.0",
+    "mustache": "^4.2.0",
     "promise-all-props": "^1.0.0",
     "yargs": "^16.2.0"
   },
