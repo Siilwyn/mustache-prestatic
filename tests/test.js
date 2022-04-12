@@ -58,10 +58,10 @@ tape('`render` should compile HTML from given files.', function (t) {
   // Execute five tests, each test tests all templateFiles
   t.plan(templateFiles.length * 5);
 
-  testCompile(t, dataFiles, partialFiles, undefined, false, '', 'Use templates, data and partials.');
-  testCompile(t, dataFiles, [], undefined, true, '-escape', 'Use templates and escaped data.');
-  testCompile(t, dataFiles, [], undefined, false, '-data', 'Use templates and data.');
-  testCompile(t, [], partialFiles, undefined, false, '-partial', 'Use templates and partials.');
+  testCompile(t, dataFiles, partialFiles, [], false, '', 'Use templates, data and partials.');
+  testCompile(t, dataFiles, [], [], true, '-escape', 'Use templates and escaped data.');
+  testCompile(t, dataFiles, [], [], false, '-data', 'Use templates and data.');
+  testCompile(t, [], partialFiles, [], false, '-partial', 'Use templates and partials.');
   testCompile(t, dataFiles, [], ['[%%', '%%]'], false, '-tags', 'Use customTags.');
 });
 
