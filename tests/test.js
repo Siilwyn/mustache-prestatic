@@ -55,7 +55,7 @@ const testCompile = function (t, dataFiles, partialFiles, customTags, escapeHtml
 };
 
 tape('`render` should compile HTML from given files.', function (t) {
-  // Execute three tests, each test tests all templateFiles
+  // Execute five tests, each test tests all templateFiles
   t.plan(templateFiles.length * 5);
 
   testCompile(t, dataFiles, partialFiles, undefined, false, '', 'Use templates, data and partials.');
