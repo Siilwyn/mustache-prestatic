@@ -38,6 +38,18 @@ Compile pages of static HTML from mustache templates, data and partials.`)
     type: 'array'
   })
 
+  .option('tags', {
+    alias: 't',
+    describe: 'Use custom delimiters/tags like \'[%%\' \'%%]\'',
+    type: 'array'
+  })
+
+  .option('escape', {
+    alias: 'e',
+    describe: 'Change HTML-escaping behavior globally',
+    type: 'boolean'
+  })
+
   .option('output', {
     alias: 'o',
     default: '.',
@@ -58,8 +70,10 @@ const transform = function (templateFiles) {
   log('templateFiles', templateFiles);
   log('data', argv.data);
   log('partials', argv.partials, '\n');
+  log('tags', argv.tags);
+  log('escape', argv.escape);
 
-  render(templateFiles, argv.data, argv.partials)
+  render(templateFiles, argv.data, argv.partials, argv.tags, argv.escape)
     .then(function (htmlResults) {
       return templateFiles.forEach(function (filePath, index) {
         let outputFileName = path.parse(filePath).name;

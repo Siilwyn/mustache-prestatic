@@ -6,6 +6,7 @@ const { promisify } = require('util');
 
 const promiseAllProps = require('promise-all-props');
 const mustache = require('mustache');
+const mustacheEscapeHtml = mustache.escape;
 
 const readFile = promisify(fs.readFile);
 
@@ -69,30 +70,37 @@ const mapTemplates = function (templateFiles, dataFiles) {
 * @param {Object} templatesMap
 * @return {Array} compiledHtml
 */
-const compileMustache = function (templatesMap, partialsMap) {
+
+const compileMustache = function (templatesMap, partialsMap, customTags, escapeHTML) {
   var compiledHtml = [];
+
+  (escapeHTML) ? mustache.escape = function(text) { return text; } : mustache.escape = mustacheEscapeHtml;
 
   for (let templateName in templatesMap) {
     let template = templatesMap[templateName].template;
     let templateData = templatesMap[templateName].data;
 
-    compiledHtml.push(mustache.render(template, templateData, partialsMap));
+    compiledHtml.push(mustache.render(template, templateData, partialsMap, customTags));
   }
 
   return compiledHtml;
 };
 
 module.exports = {
-  render: function (templateFiles, dataFiles, partialFiles) {
+  render: function (templateFiles, dataFiles, partialFiles, customTags, escapeHTML) {
     dataFiles = dataFiles || [];
     partialFiles = partialFiles || [];
+    customTags = (customTags?.length) ? customTags : undefined;
+    escapeHTML = escapeHTML || false;
 
     return Promise.all([
       promiseAllProps(mapTemplates(templateFiles, dataFiles)),
-      promiseAllProps(mapFiles(partialFiles))
+      promiseAllProps(mapFiles(partialFiles)),
+      customTags,
+      escapeHTML
     ])
       .then(function (mustacheData) {
-        return compileMustache(mustacheData[0], mustacheData[1]);
+        return compileMustache(mustacheData[0], mustacheData[1], mustacheData[2], mustacheData[3]);
       })
       .catch(function (error) {
         console.error(`Fatal error: ${error.message}`);
