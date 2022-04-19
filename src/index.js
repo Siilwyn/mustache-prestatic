@@ -6,7 +6,7 @@ const { promisify } = require('util');
 
 const promiseAllProps = require('promise-all-props');
 const mustache = require('mustache');
-const mustacheEscapeHtml = mustache.escape;
+const mustacheEscapeHtmlFunction = mustache.escape;
 
 const readFile = promisify(fs.readFile);
 
@@ -71,10 +71,10 @@ const mapTemplates = function (templateFiles, dataFiles) {
 * @return {Array} compiledHtml
 */
 
-const compileMustache = function (templatesMap, partialsMap, customTags, escapeHTML) {
+const compileMustache = function (templatesMap, partialsMap, customTags, unescaped) {
   var compiledHtml = [];
 
-  (escapeHTML) ? mustache.escape = function(text) { return text; } : mustache.escape = mustacheEscapeHtml;
+  (unescaped) ? mustache.escape = function (text) { return text; } : mustache.escape = mustacheEscapeHtmlFunction;
 
   for (let templateName in templatesMap) {
     let template = templatesMap[templateName].template;
@@ -87,17 +87,17 @@ const compileMustache = function (templatesMap, partialsMap, customTags, escapeH
 };
 
 module.exports = {
-  render: function (templateFiles, dataFiles, partialFiles, customTags, escapeHTML) {
+  render: function (templateFiles, dataFiles, partialFiles, customTags, unescaped) {
     dataFiles = dataFiles || [];
     partialFiles = partialFiles || [];
-    customTags = (customTags?.length) ? customTags : undefined;
-    escapeHTML = escapeHTML || false;
+    customTags = (customTags && customTags.length) ? customTags : undefined;
+    unescaped = unescaped || false;
 
     return Promise.all([
       promiseAllProps(mapTemplates(templateFiles, dataFiles)),
       promiseAllProps(mapFiles(partialFiles)),
       customTags,
-      escapeHTML
+      unescaped
     ])
       .then(function (mustacheData) {
         return compileMustache(mustacheData[0], mustacheData[1], mustacheData[2], mustacheData[3]);

@@ -33,8 +33,8 @@ const partialFiles = [
 * @param {String} fixtureKey
 * @param {String} message
 */
-const testCompile = function (t, dataFiles, partialFiles, customTags, escapeHtml, fixtureKey, message) {
-  render(templateFiles, dataFiles, partialFiles, customTags, escapeHtml)
+const testCompile = function (t, dataFiles, partialFiles, customTags, unescaped, fixtureKey, message) {
+  render(templateFiles, dataFiles, partialFiles, customTags, unescaped)
     .then(function (results) {
       var fileExtension = fixtureKey + '.html';
 
@@ -59,7 +59,7 @@ tape('`render` should compile HTML from given files.', function (t) {
   t.plan(templateFiles.length * 5);
 
   testCompile(t, dataFiles, partialFiles, [], false, '', 'Use templates, data and partials.');
-  testCompile(t, dataFiles, [], [], true, '-escape', 'Use templates and escaped data.');
+  testCompile(t, dataFiles, [], [], true, '-unescaped', 'Use templates and unescaped data.');
   testCompile(t, dataFiles, [], [], false, '-data', 'Use templates and data.');
   testCompile(t, [], partialFiles, [], false, '-partial', 'Use templates and partials.');
   testCompile(t, dataFiles, [], ['[%%', '%%]'], false, '-tags', 'Use customTags.');

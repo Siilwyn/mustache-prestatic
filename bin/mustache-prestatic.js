@@ -44,9 +44,9 @@ Compile pages of static HTML from mustache templates, data and partials.`)
     type: 'array'
   })
 
-  .option('escape', {
-    alias: 'e',
-    describe: 'Change HTML-escaping behavior globally',
+  .option('unescaped', {
+    alias: 'u',
+    describe: 'Use unescaped input.',
     type: 'boolean'
   })
 
@@ -71,9 +71,9 @@ const transform = function (templateFiles) {
   log('data', argv.data);
   log('partials', argv.partials, '\n');
   log('tags', argv.tags);
-  log('escape', argv.escape);
+  log('unescaped', argv.unescaped);
 
-  render(templateFiles, argv.data, argv.partials, argv.tags, argv.escape)
+  render(templateFiles, argv.data, argv.partials, argv.tags, argv.unescaped)
     .then(function (htmlResults) {
       return templateFiles.forEach(function (filePath, index) {
         let outputFileName = path.parse(filePath).name;
