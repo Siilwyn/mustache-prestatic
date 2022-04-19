@@ -40,16 +40,18 @@ Usage: mustache-prestatic templateFiles [options]
 Compile pages of static HTML from mustache templates, data and partials.
 
 Options:
-  --help, -h      Show help text.
-  --version, -v   Show version number.
-  --data, -d      Input mustache template data files.
-  --partials, -p  Input mustache partial files.
-  --output, -o    Output directory, defaults to current directory.
-  --verbose       Log extra information about the process to stdout.
+  --help, -h        Show help text.
+  --version, -v     Show version number.
+  --data, -d        Input mustache template data files.
+  --partials, -p    Input mustache partial files.
+  --tags, -t        Use custom delimiters/tags like '[%%' '%%]'.
+  --unescaped, -u   No HTML-escaping.
+  --output, -o      Output directory, defaults to current directory.
+  --verbose         Log extra information about the process to stdout.
 ```
 
 ### JavaScript
-#### mustachePrestatic(templateFiles, [dataFiles], [partialFiles])
+#### mustachePrestatic(templateFiles, [dataFiles], [partialFiles], [customTags], unescaped)
 Compile HTML from provided mustache files.
 
 ##### templateFiles
@@ -63,6 +65,14 @@ The files that contain the mustache template data, this data will populate the t
 ##### partialFiles
 Type: `Array`  
 The files that contain the mustache partials, these are re-usable parts of views that get included.
+
+##### customTags
+Type: `Array`  
+Array with custom mustache start- and end-tag - default: ['{{', '}}']
+
+##### unescaped
+Type: `Boolean`  
+Set to true to overwrite the global mustache.escape function and return unescaped input.
 
 [mustache]: https://mustache.github.io/
 [mustache.js]: https://github.com/janl/mustache.js
