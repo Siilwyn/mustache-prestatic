@@ -80,6 +80,6 @@ Set to true to overwrite the global mustache.escape function and return unescape
 [travis]: https://travis-ci.com/Siilwyn/mustache-prestatic
 [travis-badge]: https://api.travis-ci.com/Siilwyn/mustache-prestatic.svg
 [lgtm]: https://lgtm.com/projects/g/Siilwyn/mustache-prestatic/
-[lgtm-badge]: https://tiny-shields.voorhoede.workers.dev/service/lgtm/grade/javascript/g/Siilwyn/mustache-prestatic
+[lgtm-badge]: https://tinyshields.dev/lgtm/grade/javascript/g/Siilwyn/mustache-prestatic.svg
 [npm]: https://www.npmjs.com/package/mustache-prestatic
-[npm-badge]: https://tiny-shields.voorhoede.workers.dev/service/npm/mustache-prestatic
+[npm-badge]: https://tinyshields.dev/npm/mustache-prestatic.svg
