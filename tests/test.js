@@ -33,8 +33,8 @@ const partialFiles = [
 * @param {String} fixtureKey
 * @param {String} message
 */
-const testCompile = function (t, dataFiles, partialFiles, fixtureKey, message) {
-  render(templateFiles, dataFiles, partialFiles)
+const testCompile = function (t, dataFiles, partialFiles, customTags, unescaped, fixtureKey, message) {
+  render(templateFiles, dataFiles, partialFiles, customTags, unescaped)
     .then(function (results) {
       var fileExtension = fixtureKey + '.html';
 
@@ -55,12 +55,14 @@ const testCompile = function (t, dataFiles, partialFiles, fixtureKey, message) {
 };
 
 tape('`render` should compile HTML from given files.', function (t) {
-  // Execute three tests, each test tests all templateFiles
-  t.plan(templateFiles.length * 3);
+  // Execute five tests, each test tests all templateFiles
+  t.plan(templateFiles.length * 5);
 
-  testCompile(t, dataFiles, partialFiles, '', 'Use templates, data and partials.');
-  testCompile(t, dataFiles, [], '-data', 'Use templates and data.');
-  testCompile(t, [], partialFiles, '-partial', 'Use templates and partials.');
+  testCompile(t, dataFiles, partialFiles, [], false, '', 'Use templates, data and partials.');
+  testCompile(t, dataFiles, [], [], true, '-unescaped', 'Use templates and unescaped data.');
+  testCompile(t, dataFiles, [], [], false, '-data', 'Use templates and data.');
+  testCompile(t, [], partialFiles, [], false, '-partial', 'Use templates and partials.');
+  testCompile(t, dataFiles, [], ['[%%', '%%]'], false, '-tags', 'Use customTags.');
 });
 
 tape('`mapTemplates` should reject on invalid file.', function (t) {
